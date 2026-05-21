@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VM Bordados</title>
+<style>
+body {font-family: Arial; background:#fff0f5; margin:0}
+header {background:#ffc0cb; text-align:center; padding:25px}
+header h1 {color:white; font-size:32px}
+.container {padding:20px}
+.section h2 {color:#d63384; border-bottom:2px solid #ffc0cb}
+
+.card {background:white; border-radius:20px; padding:15px; margin:15px 0; display:flex; gap:15px; cursor:pointer}
+.card img {width:110px; height:110px; border-radius:15px; object-fit:cover}
+.card .multi img{width:70px; height:70px}
+.price {color:#ff1493; font-weight:bold; font-size:18px}
+.button {background:#ff69b4; color:white; padding:10px; border:none; border-radius:10px; margin-top:8px; cursor:pointer}
+.footer {background:#ffc0cb; text-align:center; padding:12px; color:white}
+
+/* MODAL */
+.modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center}
+.modal-content {background:white; border-radius:20px; width:90%; max-width:420px; padding:20px; text-align:center}
+.modal img {width:100%; max-height:260px; object-fit:cover; border-radius:15px; margin-bottom:10px}
+.gallery {display:flex; gap:8px; justify-content:center; margin-bottom:10px}
+.gallery img {width:70px; height:70px; border-radius:10px; object-fit:cover; cursor:pointer; opacity:0.8}
+.gallery img:hover {opacity:1}
+.modal h3 {font-size:22px; color:#c2185b}
+.close {position:absolute; top:15px; right:20px; font-size:20px; color:white; cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+<h1>VM Bordados</h1>
+<p>Delicadeza, carinho e amor em cada detalhe 💕</p>
+</header>
+
+<div class="container">
+
+<div class="section">
+<h2>Fraldas Personalizadas</h2>
+
+<div class="card" onclick="openModal(['fralda_boca.jpeg'],'Fralda Boca','45 x 35 cm','R$ 25,00')"><img src="fralda_boca.jpeg"><div><h3>Fralda Boca</h3><p>45 x 35 cm</p><p class="price">R$ 25,00</p></div></div>
+<div class="card" onclick="openModal(['fralda_ombro.jpeg'],'Fralda Ombro','80 x 35 cm','R$ 35,00')"><img src="fralda_ombro.jpeg"><div><h3>Fralda Ombro</h3><p>80 x 35 cm</p><p class="price">R$ 35,00</p></div></div>
+<div class="card" onclick="openModal(['fralda_passeio.jpeg'],'Fralda Passeio','80 x 70 cm','R$ 45,00')"><img src="fralda_passeio.jpeg"><div><h3>Fralda Passeio</h3><p>80 x 70 cm</p><p class="price">R$ 45,00</p></div></div>
+<div class="card" onclick="openModal(['toalha_fralda_sem_capuz.jpeg'],'Toalha Fralda sem capuz','','R$ 65,00')"><img src="toalha_fralda_sem_capuz.jpeg"><div><h3>Toalha Fralda sem capuz</h3><p class="price">R$ 65,00</p></div></div>
+<div class="card" onclick="openModal(['toalha_fralda_com_capuz.jpeg'],'Toalha Fralda com capuz','','R$ 80,00')"><img src="toalha_fralda_com_capuz.jpeg"><div><h3>Toalha Fralda com capuz</h3><p class="price">R$ 80,00</p></div></div>
+<div class="card" onclick="openModal(['babita.jpeg'],'Babita com prendedor de chupeta','30 x 30 cm','R$ 20,00')"><img src="babita.jpeg"><div><h3>Babita com prendedor de chupeta</h3><p>30 x 30 cm</p><p class="price">R$ 20,00</p></div></div>
+<div class="card" onclick="openModal(['trio_fraldas.jpeg'],'Trio Fraldinhas de Boca','26 x 40 cm','R$ 50,00')"><img src="trio_fraldas.jpeg"><div><h3>Trio Fraldinhas</h3><p>26 x 40 cm</p><p class="price">R$ 50,00</p></div></div>
+<div class="card" onclick="openModal(['toalha_banho_capuz.jpeg'],'Toalha de Banho com Capuz','0 a 5 anos','R$ 100,00')"><img src="toalha_banho_capuz.jpeg"><div><h3>Toalha com capuz</h3><p>0 a 5 anos</p><p class="price">R$ 100,00</p></div></div>
+<div class="card" onclick="openModal(['toalhinha_batizado.jpeg'],'Toalhinha Batizado','45 x 30 cm','R$ 35,00')"><img src="toalhinha_batizado.jpeg"><div><h3>Toalhinha Batizado</h3><p>45 x 30 cm</p><p class="price">R$ 35,00</p></div></div>
+<div class="card" onclick="openModal(['mantinha.jpeg'],'Mantinha Baby','','R$ 90,00')"><img src="mantinha.jpeg"><div><h3>Mantinha Baby</h3><p class="price">R$ 90,00</p></div></div>
+<div class="card" onclick="openModal(['prendedor.jpeg'],'Prendedor de Chupeta','','R$ 20,00')"><img src="prendedor.jpeg"><div><h3>Prendedor de Chupeta</h3><p class="price">R$ 20,00</p></div></div>
+<div class="card" onclick="openModal(['necessaire.jpeg'],'Necessaire do Bebê','','R$ 55,00')"><img src="necessaire.jpeg"><div><h3>Necessaire</h3><p class="price">R$ 55,00</p></div></div>
+<div class="card" onclick="openModal(['porta_documento.jpeg'],'Porta Documento Caderneta de Vacinação','','R$ 95,00')"><img src="porta_documento.jpeg"><div><h3>Porta Documento</h3><p class="price">R$ 95,00</p></div></div>
+<div class="card" onclick="openModal(['saquinho.jpeg'],'Saquinho Roupa Suja','','R$ 45,00')"><img src="saquinho.jpeg"><div><h3>Saquinho de Roupa Suja</h3><p class="price">R$ 45,00</p></div></div>
+</div>
+
+<div class="section">
+<h2>Toalhas Personalizadas</h2>
+
+<!-- JOGO DE CASAL -->
+<div class="card" onclick="openModal(['casal1.jpeg','casal2.jpeg','casal3.jpeg'],'Jogo de Toalhas Casal','2 banho + 1 rosto','R$ 240,00')">
+<div class="multi">
+<img src="casal1.jpeg"><img src="casal2.jpeg"><img src="casal3.jpeg">
+</div>
+<div>
+<h3>Jogo de Casal</h3>
+<p>2 banho + 1 rosto</p>
+<p class="price">R$ 240,00</p>
+</div>
+</div>
+
+<div class="card" onclick="openModal(['toalha_banho_capuz.jpeg'],'Toalha de Banho com Capuz','0 a 5 anos','R$ 100,00')"><img src="toalha_banho_capuz.jpeg"><div><h3>Toalha de Banho (com capuz)</h3><p>0 a 5 anos</p><p class="price">R$ 100,00</p></div></div>
+<div class="card" onclick="openModal(['toalha_banho_sem_capuz.jpeg'],'Toalha de Banho sem capuz','70 x 140 cm','R$ 100,00')"><img src="toalha_banho_sem_capuz.jpeg"><div><h3>Toalha de Banho (sem capuz)</h3><p>70 x 140 cm</p><p class="price">R$ 100,00</p></div></div>
+<div class="card" onclick="openModal(['toalha_lavabo.jpeg'],'Lavabo','45 x 30 cm','R$ 35,00')"><img src="toalha_lavabo.jpeg"><div><h3>Lavabo</h3><p>45 x 30 cm</p><p class="price">R$ 35,00</p></div></div>
+<div class="card" onclick="openModal(['toalha_rosto.jpeg'],'Rosto','70 x 50 cm','R$ 45,00')"><img src="toalha_rosto.jpeg"><div><h3>Rosto</h3><p>70 x 50 cm</p><p class="price">R$ 45,00</p></div></div>
+<div class="card" onclick="openModal(['toalha_banho.jpeg'],'Banho','70 x 140 cm','R$ 100,00')"><img src="toalha_banho.jpeg"><div><h3>Toalha de Banho</h3><p>70 x 140 cm</p><p class="price">R$ 100,00</p></div></div>
+<div class="card" onclick="openModal(['toalhinha_escolar.jpeg'],'Toalhinha Escolar','36 x 25 cm','R$ 15,00')"><img src="toalhinha_escolar.jpeg"><div><h3>Escolar</h3><p>36 x 25 cm</p><p class="price">R$ 15,00</p></div></div>
+
+</div>
+
+</div>
+
+<div class="footer"><p>Taxa de entrega: R$ 10,00</p></div>
+
+<div class="modal" id="modal">
+<span class="close" onclick="closeModal()">X</span>
+<div class="modal-content">
+<img id="modal-img">
+<div class="gallery" id="gallery"></div>
+<h3 id="modal-title"></h3>
+<p id="modal-size"></p>
+<p class="price" id="modal-price"></p>
+<button class="button">Comprar</button>
+</div>
+</div>
+
+<script>
+function openModal(images,title,size,price){
+  document.getElementById('modal').style.display='flex';
+  document.getElementById('modal-img').src=images[0];
+  document.getElementById('modal-title').innerText=title;
+  document.getElementById('modal-size').innerText=size;
+  document.getElementById('modal-price').innerText=price;
+
+  let gallery = document.getElementById('gallery');
+  gallery.innerHTML='';
+  images.forEach(img=>{
+    let el=document.createElement('img');
+    el.src=img;
+    el.onclick=()=>{document.getElementById('modal-img').src=img};
+    gallery.appendChild(el);
+  });
+}
+function closeModal(){document.getElementById('modal').style.display='none'}
+</script>
+
+</body>
+</html>
